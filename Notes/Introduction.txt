@@ -1,0 +1,52 @@
+Trade captial expense (CAPEX) for operational expense(OPEX) - pay on demand and don't own hardware
+
+Pricing of cloud - pay as you go model - Compute (pay for compute time), 
+    storage (pay for data stored in the cloud), network (data transfer in is free but out is charged)
+
+AWS global infrastructure - AWS regions, AWS availability zones, AWS edge locations, AWS data centers
+
+How to choose a region - 
+    Compliance: with data governance and legal requirements: data never leaves the region without a service provider's consent
+    Proximity to customers: Reduced latency
+    Available services within the region: new services and new features aren't available in all regions
+    Pricing: varies from region to region
+
+AWS availability zones - Each region has many availability zones. ususally 3, min is 3 and max is 6
+    Sydney: ap-southeast -> ap-southeast-2a, ap-southeast-2b, ap-southeast-2c, each zone is separate from each other
+        They are connected with high bandwidth and ultra low latency networking.
+
+
+AWS point of presence (POP) -
+    Edge locations
+    400+ Points of presence 
+
+AWS has global services 
+    IAM, Route 53, cloudfront, WAF (web applcation firewall), CloudTrail, CloudWatch, CloudFormation etc.
+Region scoped services -
+    EC2, elastic beanstalk, Lambda, and rekognition
+
+Share Responsibility Model -
+    AWS accounts are owned by AWS customers, and AWS customers are responsible for the security of their AWS accounts.
+    Customer - Responsibility
+        customer data
+        platform, applications, idenity and access management
+        operating system, network and firewall configuration
+        Client side data    
+            Encryption and data integrity authenctication
+            Server side Encryption
+            Networking traffic protection (Encryption, integrity, idenity)
+    AWS - Responsibility
+        Compute
+        Storage
+        Database
+        Networking
+        Regions
+        AZ
+        Edge locations
+
+    AWS accepatable use policies
+        No illeagal, harmful, or offensive use or content.
+        No security violations
+        No network abuse
+        No email or other message abuse.
+

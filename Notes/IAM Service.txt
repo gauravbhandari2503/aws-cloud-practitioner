@@ -1,0 +1,78 @@
+Global Service
+Root account created by default, shouldn't be used or shared
+Users are people within your organization, and can be grouped.
+
+IAM permissions
+    Users or groups can be assigned JSON documents called policies that define what they can do.
+    These policies define the permissions that the user has.
+    In AWS you apply the lease privilege principle: Don't give more permissions than a user needs.
+
+IAM policies inheritance
+    Let's say we have Alice, Bob, Charlie, David, Edwar and Fred.
+    Alice, Bob and charlie are in the same group. Called Developers, then they will inherit the permissions of the group.
+    David and Edwar are in the same group. Called Operations, then they will inherit the permissions of the group.
+    Fred doesn't belong to any group, so he will have inline policies.
+    Charles and David are in the Audit group as well, so then they will inherit the permissions of the group.
+
+IAM policies structure
+    consist of 
+        version - version of the policy document
+        id: an identifier for the policy, optional
+        Statement - a list of statements (Array of JSON objects)
+            Sid: an identifier for the statement, optional
+            Effect: Where the statemnt allows or denies access
+            principle: account, user or role, to which the policy applied to
+            action: list of actions that are allowed or denied
+            rescource: list of resources to which the actions applied to
+            condition: condtions for when this policy is in effect (Optional)
+
+IAM MFA overview
+    IAM password policy (Very helpful)
+        Set passwrod policy for IAM users
+            minimum password length
+            require uppercase, lowercase, numbers, and special characters
+            prevent reuse of passwords
+            enforce password expiration
+    IAM MFA (USA made it mandatory)
+        MFA = password + security token
+        Even password is stolen, MFA is still secure
+        Virtual MFA device
+            Google Authenticator (phone app)
+            Authy (phone app)
+        Universal 2nd factor (U2F) Security key
+            Physical device example YubiKey
+        Hardware key fob MFA device
+            Provided by gemalto(3rd party)
+            AWS GovCloud - Provided by SurePassID
+
+IAM Roles for services
+    Some AWS service will need to perform actions on your behalf.
+    To do so, we will assign permissions to AWS servies with IAM roles.
+    Common roles: EC2 role, Lambda role, Roles for cloud formation, etc.
+    Example: EC2 instance want's to access the AWS service, then EC2 instance need to has some role to get the access.
+
+IAM Security Tools
+    IAM credential report (Account level)
+        a report that list all your account's users and status of their various credentials
+    IAM Access Advisor (user level)
+        Access Advisor show ths service permissions granted to the user and when those services were last accessed.
+    
+IAM best practices
+    Don't use root account except for AWS account setup
+    One physical user = one AWS user (Don't provide your credentials)
+    Assign users to groups and permissions to groups
+    Create strong password policies
+    Use and enfore the use of MFA
+    Create and use Roles for giving permissions to AWS services.
+    Use Access key for Programatic access
+    Audit permissions on your account using IAM credentials Report and IAM access Advisor.
+    Never share IAM users and access keys
+
+Share Responsibility Model for IAM
+    You - Users, groups, roles, policies, management and monitoring
+        Enable MFA 
+        Rotate keys
+        Use IAM tools to apply appropriate permissions
+        Review permissions
+    AWS - infrastructure, configuration and vulnerability anaylsis, Compliance validation.
+

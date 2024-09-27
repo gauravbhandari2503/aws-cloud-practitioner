@@ -1,0 +1,143 @@
+One of the most important services in AWS
+
+Elastic cloud compute, used to do infrastructure as a service
+
+It mainly consist in the capability of: 
+    Renting Virtual machines (EC2) - Elastic Compute Cloud instance
+    Storing data on virtual drives (EBS) - Elastic Block Store
+    Distribute load across multiple machines (ELB) - Elastic Load Balancer
+    Scaling the services using an auto-Scaling group (ASG) - Auto Scaling Group
+
+EC2 sizing & configuration options
+    OS - Mac, Windows, Linux
+    How much compute power and cores (CPU)
+    How much RAM
+    How much storage
+        Network attached (EBS & EFS)
+        Hardware attached (Instance store)
+    Network card 
+        Speed of the card, Public IP address.
+    Firewall rules 
+        Security groups
+    Bootstrap script (Configure at first launch): EC2 user data
+
+EC2 user data 
+    It is possible to bootstrap our instances using an EC2 User Data script.
+    Bootstrapping means launching commands when machine starts.
+    That script is only run once at the instance first start.
+    EC2 user data is used to automate boot tasks such as
+        Insatlling software
+        Updating software
+        Downloading files
+        Anything
+    The EC2 user data script runs with the root user.
+
+
+instance
+    Different types of instances for your use case.
+    Free tier - t2.micro
+    Public IP address changes every time the instance is rebooted.
+
+EC2 instances types
+    General Purpose, Compute Optimized, 
+        Memory Optimized, Accelerated Compute Optimized, Storage Optimized, HPC Optimized, Instance Features, Measuring instance performance.
+    AWS has following name conventions
+        m5.2xlarge
+            m: instance class
+            5 is the generation (improves overtime)
+            2xlarge size within the instance.
+
+
+More on instances types
+    General Purpose 
+        Great for diversity of workloads such as web servers or code repositories.
+        Balance between
+            Compute 
+            Memory 
+            Networking
+        Example: t2.micro
+    Compute Optimized
+        Great for compute intensive workloads or tasks, that require high performance processors:
+            Batch processing
+            Media transcoding
+            Machine learning
+            Scientific computing
+            High-performance computing
+            Data analytics
+            Video processing
+            AI/ML
+        Example: c5.2xlarge
+    Memory Optimized (RAM)
+        Great for memory intensive workloads or tasks, that require high memory capacity:
+        Use cases:
+            High performances databases
+            Distributed web scale cache stores
+            Business intelligence
+            Application performing real time analytics
+        Example: r5.2xlarge
+    Storage Optimized
+        Great for storage intensive workloads or tasks, that require high storage capacity:
+        Use cases:
+            Data warehouses
+            Big data analytics
+            Batch processing
+            Distributed file systems
+            Cache for in-memory data
+        example: starts with i, d, h 
+
+
+https://instances.vantage.sh/ - Instances comparison
+https://aws.amazon.com/ec2/instance-types/ - Instance types
+https://aws.amazon.com/ec2/pricing/ - EC2 pricing
+
+Security Groups (Firewalls around the instance)
+    Control how traffic can enter and leave the instance.
+    Security groups only contain allow rules 
+    Security groups rules can reference by IP or by security group
+    Good to know:
+        Can be attached to multiple instances.
+        Locked to region / VPC combination.
+        It really a firewall running outside your EC2 instance.
+        It's good to maintain one separate security group for SSH access.
+        Application is not accessible (Timeoute), then it's a security group issue.
+        But if your application gives a connection refused error, then it's a application issue.
+        All in bound traffic is blocked by default.
+        All out bound traffic is authorised by default.
+    Classic ports to know:
+        22 - SSH
+        21 - FTP
+        22 - SFTP (Secure File Transfer Protocol) - upload file using SSH
+        80 - HTTP - access unsecured web application
+        443 - HTTPS - access secured web application
+        3389 - RDP - remote desktop protocol - log into window instance.
+
+
+ec2 instance can be connected via 
+    SSH
+    intance connect
+
+SSH overview
+    ssh -i EC2Tutorial.pem ec2-user@13.60.221.80
+
+Use IAM role for EC2 instances. SO that you ec2 instance can access AWS services.
+
+EC2 purchasing options
+    On-Demand
+        You pay for the time you use the instance.
+    Reserved (1 & 3 years)
+        You pay for the time you use the instance, and the instance is reserved for you.
+        Reserved instances - long workloads
+        Convertible Reserved intances - long workloads with flexible instance.
+    Savings Plan (1 & 3 years) - commitement to an amount of usage, long workload.
+    Spot Instances - Short workloads, cheap and can loose instances (Less reliable)
+    Dedicated Hosts - Book an entire physical server, and use it as an EC2 instance.
+    Dedicated Instances - No other customers will share the hardware
+    Capacity Reservations - Reserved capacity for a specific time
+
+Shared Responsibility Model for EC2
+    AWS - Infrastructure, configuration and vulnerability anaylsis, Compliance validation.
+    You - Security Groups
+        Operating system patches and updates
+        Software and utilities installed on EC2
+        IAM roles assigned to EC2 instance and IAM user management
+        Data security on your instance.
