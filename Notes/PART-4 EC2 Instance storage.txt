@@ -1,0 +1,18 @@
+EBS Volume 
+    Elastic block store volume is a network drive you can attach to your instances while they run.
+    It allows your instances to persist data even after termination.
+    They can be mounted to one instance at a time (At CCP level)
+    They are bound to a specific availability zone.
+    Think of them as network USB Stick
+
+
+EBS Snapshots
+    Make a backup (Snapshot)of your EBS volumne at a point of time.
+    Not necessary to detach volume to do Snapshot, but recommended.
+    Can copy snapshots across AZ or region
+    EBS snapshots features 
+        EBS Snapshot Archive
+            Move a snapshot to an "archive tier" that is 75% cheaper.
+            Takes withing 24 to 72 hours for restoring the archive.
+        Recycle bin for EBS Snapshots 
+            Specify retention (From 1 day to 1 year)

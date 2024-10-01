@@ -1,0 +1,72 @@
+There are two kinds of scalability: 
+    Vertical
+    Horizontal (Elasticity)
+
+Vertical Scalability
+    Means increasing the size of the instance.
+    For example, if your application is running on a t2.micro isntance,
+        Scaling the application vertically means running in on a t2.large instance.
+    Verical scalability is very common for non distributed systems, such as database.
+    There is usually a limit to how much you can vertically scale (hardware limit).
+
+Horizontal Scalability
+    Means increasing the number of instances.
+    For example, if you have a web application, you can horizontally scale by adding more instances.
+    Horizontal scalability is very common for distributed systems, such as web applications.
+
+High Availability usually goes hand in hand with horizontal scalability.
+    It means running your application / system in atleast 2 Availability Zones.
+    The goal of high availablity is to survive a data center loss (disaster).
+
+Elastic load balancing
+    Load balancers are servers that forward internet traffic to multiple servers (EC2 instances) downstream.
+    Directing traffic.
+    Why load balancing?
+        Expose single point of access (DNS) to your application
+        Seamlessely handle failures
+        Do regular health checks 
+        PRovide SSL Termination for your websites.
+        Higly avaialable
+    Why Elastic load balancing?
+        AWS guarantees that it will be working.
+        AWS take cares of upgrades, maintenance, and high availability.
+        AWS provides only a few configuration knobs.
+        It cost less to setup your own load balancer but it will be a lot more effort on your end (maintenance and integration)
+    4 kinds of load balancers
+        Application Load Balancer
+            Application Load Balancer is a load balancer that sits in front of your application.
+            Http and https only - layer 7
+        Network Load Balancer
+            Ultra high performance load balancer that sits in front of your application.
+            Layer 4 - TCP/UDP
+        Gateway Load Balancer
+            Load balancer that sits in front of your application.
+            Layer 3
+        Classic Load Balancer
+            Retired in 2023 - layer 4 and 7
+
+
+Autoscaling groups
+    In realife the load on your websites and application can change
+    The goal of an Autoscaling group is to automatically scale your application up and down.
+    automatically register and deregister instances in the Autoscaling group.
+    Repalce unhealthy instances with healthy ones.
+    Cost saving - AWS will automatically terminate instances that are not in use.
+
+
+
+Autoscaling groups strategies
+    Manual scaling 
+        Update the size of ASG manually
+    Dynamic scaling
+        Simple/step scaling
+            When a cloudWatch alarm is triggered (Example  CPU > 70%), then add 2 units
+            When a cloudWatch alarm is triggered (Example  CPU < 30%), then remove 1 unit.
+        Target Tracking Scaling
+            I want the average ASG cpu to stay around 40%.
+        Scheduled Scaling
+            Anticipated a scaling based on known pattern.
+            ex: Big billion days
+        Predictive scaline 
+            uses machine learning to predict future load.
+            automatically provision the right number of instances.

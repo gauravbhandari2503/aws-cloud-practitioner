@@ -1,0 +1,35 @@
+Managed NFS (Network file system) that can be mounted on 100s of EC2 instances.
+EFS work with linux EC2 instances in multi AZs.
+Highly available, scalable, and expensive (3 x gp2), pay per use, no capacity planning.
+
+
+EBS vs EFS
+    EBS can be attached to single instance in a single AZ. 
+    If we want to move from one AZ to another, we need to create snapshot and restore that snapshot to the new AZ.
+    This is copy not an original EBS.
+
+    Where as EFS can be mounted on multiple instances in multiple AZs.
+
+EFS infrequent access (EFS-IA)
+Storage class that is cost optimized for files not accessed everyday.
+Upto 92% lower cost compared to EFS standard.
+EFS will autmoatically move files to EFS-IA based on last time they were accessed.
+
+
+Shared responsibility
+    AWS
+        Infrastructure, Replication for data for EBS volumes and EFS drives.
+        Replacing faulty hardware.
+        Ensuring their employee cannot access your data.
+    User
+        Setting up Snapshots and backups
+        Setting up data Encryption
+        Responsibility of any data on the drive.
+        Understanding the risk of using instance store
+
+
+Amazon FSx - Launc 3rd party high performance file systems on AWS.
+Fully managed service.
+FSx on Lustre - Lustre is a high performance file system.
+Fsx on Windows - Windows file system.
+FSx for NetApp ONTAP - NetApp ONTAP is a high performance file system.
