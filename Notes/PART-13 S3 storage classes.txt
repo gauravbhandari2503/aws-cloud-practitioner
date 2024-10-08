@@ -1,0 +1,93 @@
+S3 Standard
+S3 Standard IA (IA = Infrequent Access)
+S3 Standard - One Zone Infrequent Access
+S3 Glacier instant retrieval
+S3 Glacier flexible retrieval
+S3 Glacier Deep Archive
+S3 Intelligent-Tiering
+
+
+
+Durability - represents how many times the object is going to be lost by amazon 
+    AWS s3 has very high durability 
+    11 nines - 99.99999999999999%
+    same for all storage classes.
+Availability - How readily available a service is 
+    Varies depending on the storage class
+    example: S3 Standard - 99.9% availability = not available 53 minutes a year.
+
+
+S3 Standard
+    99.99% availability
+    Used for frequenlty accessed data
+    Low latency and high throughput
+    Sustain 2 concurent facility failures
+    Use cases: Big data analytics, mobile and gaming application, content distribution.
+
+
+S3 Standard IA
+    For data that is accessed infrequently
+    Lower cost
+    99.99% availability
+    Use cases: Disaster recover, backups.
+
+One Zone IA
+    high durability
+    99.5% availability
+    use case; storing secondary backup copies of one premise or data you can recreate.
+
+Glacier Storage class
+    Low cost object storage meant for archiving and backup.
+    Pricing: price for storage + object retrieval cost
+
+    AWS s3 Glacier instant retrieval
+        Miliseconds retrieval
+        Great for data accessed once a quarter.
+        Minimum storeage duration of 90 days
+    flexible retrieval
+        Expedited (1 to 5 minutes), Standard (3 to 5 hours), Bulk (5 to 12 hours)- free
+        Minimum storeage duration of 90 days
+    Deep Archive
+        Standard (12 hours), Bulk (24 hours)
+        Minimum storeage duration of 180 days
+    
+Intelligent-Tiering
+    Small monthly monitoring and auto tiering fees.
+    Moves object automatically  between Access Tiers based on usage.
+    There are no retrieval charges 
+
+    Frequent access tier (automatic)- default tier.
+    Infrequent Access tier (automatic) - Objects not accessed for 30 days.
+    Archive instant access tier (automatic) -  Objects not accessed for 90 days.
+    Archive access tier (optional) - configurable  from 90  days to 700+ days.
+    Deep Archive access tier (optional) - configurable  from 180 days to 700+ days.
+
+S3 encryption
+    Server side encryption
+        Encryption at rest
+            Data is encrypted before it is stored in S3.
+    Client side encryption
+        Encryption in transit
+            Data is encrypted before it is sent to S3.
+
+
+IAM access analyser for S3
+Ensures that only intented people have access to your S3 buckets. 
+Evaluate S3 Bucket policies, S3 ACl's, and S3 access point policies.
+Powered by Iam Access analyser
+
+
+Shared responsibility model
+    AWS
+        Infrastrucure (global security, durability, availability, sustain concurent loss of data in two facilities)
+        Configuration and vulnereablitiy analysis. 
+        Compliance validation.
+    User
+        S3 versioning
+        S3 Bucket policies
+        Replication setup
+        Logging and monitoring.
+        S3 Storage class
+        Data encryption at rest and in transit.
+
+

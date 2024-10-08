@@ -1,0 +1,16 @@
+Two flavours of replication:
+    CRR (Cross Region Replication)
+    SRR (Same Region Replication)
+
+
+S3 bucket in eu-west-1 and other S3 bucket in us-east-2, to do the replication, we need to do the following:
+    Must enable versioning in source and destination buckets
+    CRR: (two Region are different)
+    SRR: (two Region are same)
+    buckets can be in different accounts
+    Copying is aysnc
+    Must give proper IAM permission to S3.
+
+Use cases: 
+    CRR: Compliance, Lower latency access, replication across accounts.
+    SRR: Log aggregation, live replication between production and test accounts.

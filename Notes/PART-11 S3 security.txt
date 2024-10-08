@@ -1,0 +1,38 @@
+Types of S3 security
+    User based
+        IAM users
+    Resource based
+        Bucket policies
+            bucket wide rules from s3 console, allows cross account.
+        Object Access control list (ACL)
+            Finer grain (can be disabled)
+        Bucket access control list (ACL)
+            Less common (can be disabled)
+
+
+Note: 
+    An IAM principal can access an S3 object If
+        The user IAM permission ALLOW it or the resource policy allows it.
+        AND there is no explicit DENY
+    
+Encryption 
+    Encryption is done on objects using AWS s3 encryption keys.
+
+
+
+S3 bucket policies
+    JSON based policies
+    Resources: Buckets and objects
+    Effect : Allow or Deny
+    Action: Set of API to allow or deny.
+    principal: The account or user to apply the policy to.
+
+
+AWS s3 versioning
+    You can version your files in Amazon S3
+    It is enabled at the bucket level.
+    Same key overwrite will change the version: 1, 2, 3
+    Best practise is to version your files.
+        It helps in recovery and auditing.
+        Easy rollback to previous version.
+        

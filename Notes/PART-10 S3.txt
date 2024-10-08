@@ -1,0 +1,42 @@
+AWS S3 
+    One of the main block of AWS
+    It's advertised as "infinite scaling storage"
+    Many websites use S3 as a backbone
+    Many AWS services use S3 as an integration as well.
+
+Use cases
+    Backup and storage
+    For disaster recovery 
+    For Archive purposes.
+    Hybrid cloud storage.
+    Application hosting
+    Media hosting 
+    data lakes and big data analytics
+    Software delivery 
+    Static website.
+
+NASDAQ stores 7 years of data into S3 Glacier.
+
+Stores file in buckets (Directories)
+    Files in this buckets are called objects.
+    Bucket must be globally unique.
+    Bukcet are defined at the region level.
+    S3 looks like a global service but buckets are created in a region.
+    Naming convention 
+        No upper cases
+        No underscore
+        Not an IP
+        Must start with lowercase or number
+        Must NOT start with prefix xn--
+        Must not end with suffix -s3alias
+
+AWS S3 - objects
+    Object (file) have a key
+    The key is the full path: 
+        ex: s3://my-bucket/my_file.txt
+    Object values are the content of the body.
+    Max object size is 5TB (5000 GB).
+    If uploading more than 5GB, must use "multi-part upload".
+    Meta data (list of text key value pairs)
+    Tags (Unicode key / value pair - upto to 10) - useful for security/lifecycle 
+    Version ID (If versioning is enabled)

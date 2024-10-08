@@ -1,0 +1,9 @@
+Highly secure, portable device to collect and process data at the edge and migrate data in and out of AWS.
+
+Snowcone
+    Storage Capacity: 8TB HDD - 14TB SSD
+    Migration size: up to terabytes.
+Snowball edge
+    Storage Capacity: 8TB - 210 TB
+    Migration size: up to petabytes.
+
