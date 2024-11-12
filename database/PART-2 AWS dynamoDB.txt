@@ -1,0 +1,49 @@
+Fully managed Highly available NoSQL database service.
+    With replication across 3 AZs.
+
+Flagship product of AWS.
+
+Distributed serverless database.
+
+Million of request per second, trillions of row, 100s of TB of storage.
+Fast and consistent performance.
+Single digit millisecond latency.
+
+Integrated with IAM for security, authorization and adminsitration.
+
+Low cost and auto scaling capabilities.
+
+Standard and infrequent access.
+
+DynamoDB Accelerator - DAX
+Fully managed, in memory cache service for DynamoDB.
+10x performance improvement over DynamoDB.
+Secure, Highly Scalalble, and highly available.
+Differenc with Elastic Cache at the CCP level: 
+    DAX is only used for and is integrated with DynamoDB, while Elastic Cache can be used for other databased.
+
+
+
+
+Composite Keys in a Single Table:
+
+DynamoDB's single-table design allows you to store multiple types of related items in the same table and reference them by using composite keys (Partition Key and Sort Key).
+For example, you could store both users and orders in a single table, with UserId as the partition key and a combination of Type and ID (e.g., User#user123 or Order#order789)
+as the sort key.
+
+
+// Single Table with Users and Orders
+{
+  "PK": "USER#user123",
+  "SK": "USER#user123",
+  "Name": "John Doe",
+  "Email": "johndoe@example.com"
+},
+{
+  "PK": "USER#user123",
+  "SK": "ORDER#order789",
+  "Product": "Laptop",
+  "Quantity": 1
+}
+
+By querying on PK = "USER#user123", you can retrieve both the user data and all their orders in one query.

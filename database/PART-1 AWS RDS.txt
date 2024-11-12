@@ -1,0 +1,45 @@
+AWS RDS (Relation database service)
+Managed by AWS.
+
+RDS vs DB on EC2
+    RDS is managed by AWS.
+    Automated provisioning, OS patching
+    Continuous backups
+    Monitoring 
+    Scale up and down.
+    Multi AZ setup. 
+    Storage backed by EBS.
+    Can't use SSH into your instance.
+
+AWS Aurora 
+    Aurora is propietary technology from AWS (NOT open source)
+    It supports MySql, and Postgres.
+    Aurora is AWS cloud optimized, and claims 5x performance improvement over MySql on RDS, over 3x performance of Postgre on RDS.
+    20% more costly than RDS
+    Not a free Tier service.
+
+
+AWS RDS
+    Read Replicas
+        Read replicas are read only copies of your master database.
+        They are used for read only workloads.
+        They are not used for writes.
+        Can create up to 15 read replicas.
+        Data is only done to the main database.
+    Multi AZ
+        Failover in case of AZ outage.
+        Failover DB is store in different AZ.
+        Can have only 1 other AZ as failover.
+    Multi Region
+        Can be in different regions.
+        They are mainly read replica.
+        Disaster recovery in case of region issue
+        Replication cost is associated with the region.
+
+AWS Elastic Cache
+    In memory cache service.
+    It is not a database. It is a in-memory databases.
+    It is used for caching data.
+    High performance, low latency.
+    Help reduce database load.
+    
